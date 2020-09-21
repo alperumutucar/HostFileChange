@@ -120,6 +120,5 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     HostFileChange = QtWidgets.QMainWindow()
     ui = Ui_HostFileChange()
-    ui.setupui()
     HostFileChange.show()
     sys.exit(app.exec_())

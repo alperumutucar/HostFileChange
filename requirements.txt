@@ -1,2 +1,2 @@
 PyQt5==5.12.2
-requests
+requests Python==3.7

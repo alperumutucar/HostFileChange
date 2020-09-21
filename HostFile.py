@@ -1,11 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-import sys, os
-import requests
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout, QHBoxLayout, QLineEdit, \
-    QListWidget, QSystemTrayIcon, QStyle, QAction, qApp, QMenu, QSpacerItem, QScrollArea, QCompleter, QMainWindow
-from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QWidget, QSystemTrayIcon, QAction, QMenu
 from PyQt5.QtGui import QIcon
-from PyQt5 import QtGui
 
 
 class Ui_HostFileChange(QWidget):
@@ -31,60 +26,60 @@ class Ui_HostFileChange(QWidget):
         self.centralwidget = QtWidgets.QWidget(HostFileChange)
         self.centralwidget.setObjectName("centralwidget")
 
-        self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
-        self.textEdit.setGeometry(QtCore.QRect(20, 30, 191, 31))
-        self.textEdit.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.textEdit.setObjectName("textEdit")
+        self.ipText = QtWidgets.QTextEdit(self.centralwidget)
+        self.ipText.setGeometry(QtCore.QRect(20, 30, 191, 31))
+        self.ipText.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.ipText.setObjectName("ipText")
 
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(260, 410, 121, 31))
-        self.pushButton.setStyleSheet("background-color: rgb(24, 186, 118);")
-        self.pushButton.setObjectName("pushButton")
+        self.ipButton = QtWidgets.QPushButton(self.centralwidget)
+        self.ipButton.setGeometry(QtCore.QRect(260, 410, 121, 31))
+        self.ipButton.setStyleSheet("background-color: rgb(24, 186, 118);")
+        self.ipButton.setObjectName("ipButton")
 
-        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(20, 412, 111, 31))
-        self.pushButton_2.setStyleSheet("background-color: rgb(24, 186, 118);")
-        self.pushButton_2.setObjectName("pushButton_2")
+        self.clearButton = QtWidgets.QPushButton(self.centralwidget)
+        self.clearButton.setGeometry(QtCore.QRect(20, 412, 111, 31))
+        self.clearButton.setStyleSheet("background-color: rgb(24, 186, 118);")
+        self.clearButton.setObjectName("clearButton")
 
-        self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(260, 330, 121, 31))
-        self.pushButton_3.setStyleSheet("background-color: rgb(24, 186, 118);")
-        self.pushButton_3.setObjectName("pushButton_3")
+        self.generateButton = QtWidgets.QPushButton(self.centralwidget)
+        self.generateButton.setGeometry(QtCore.QRect(260, 330, 121, 31))
+        self.generateButton.setStyleSheet("background-color: rgb(24, 186, 118);")
+        self.generateButton.setObjectName("generateButton")
 
-        self.textEdit_2 = QtWidgets.QTextEdit(self.centralwidget)
-        self.textEdit_2.setGeometry(QtCore.QRect(20, 90, 191, 31))
-        self.textEdit_2.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.textEdit_2.setObjectName("textEdit_2")
+        self.nameText = QtWidgets.QTextEdit(self.centralwidget)
+        self.nameText.setGeometry(QtCore.QRect(20, 90, 191, 31))
+        self.nameText.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.nameText.setObjectName("nameText")
 
-        self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_4.setGeometry(QtCore.QRect(260, 90, 121, 31))
-        self.pushButton_4.setStyleSheet("background-color: rgb(24, 186, 118);")
-        self.pushButton_4.setObjectName("pushButton_4")
+        self.searchButton = QtWidgets.QPushButton(self.centralwidget)
+        self.searchButton.setGeometry(QtCore.QRect(260, 90, 121, 31))
+        self.searchButton.setStyleSheet("background-color: rgb(24, 186, 118);")
+        self.searchButton.setObjectName("searchButton")
 
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(20, 10, 101, 16))
-        self.label.setStyleSheet("color: rgb(255, 255, 255);")
-        self.label.setObjectName("label")
+        self.ipLabel = QtWidgets.QLabel(self.centralwidget)
+        self.ipLabel.setGeometry(QtCore.QRect(20, 10, 101, 16))
+        self.ipLabel.setStyleSheet("color: rgb(255, 255, 255);")
+        self.ipLabel.setObjectName("ipLabel")
 
-        self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(20, 70, 101, 16))
-        self.label_2.setStyleSheet("color: rgb(255, 255, 255);")
-        self.label_2.setObjectName("label_2")
+        self.nameLabel = QtWidgets.QLabel(self.centralwidget)
+        self.nameLabel.setGeometry(QtCore.QRect(20, 70, 101, 16))
+        self.nameLabel.setStyleSheet("color: rgb(255, 255, 255);")
+        self.nameLabel.setObjectName("nameLabel")
 
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(260, 140, 141, 16))
-        self.label_3.setStyleSheet("color: rgb(255, 255, 255);")
-        self.label_3.setObjectName("label_3")
+        self.changedLabel = QtWidgets.QLabel(self.centralwidget)
+        self.changedLabel.setGeometry(QtCore.QRect(260, 140, 141, 16))
+        self.changedLabel.setStyleSheet("color: rgb(255, 255, 255);")
+        self.changedLabel.setObjectName("changedLabel")
 
-        self.treeView = QtWidgets.QTreeView(self.centralwidget)
-        self.treeView.setGeometry(QtCore.QRect(20, 150, 191, 231))
-        self.treeView.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.treeView.setObjectName("treeView")
+        self.mainList = QtWidgets.QTreeView(self.centralwidget)
+        self.mainList.setGeometry(QtCore.QRect(20, 150, 191, 231))
+        self.mainList.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.mainList.setObjectName("mainList")
 
-        self.treeView_2 = QtWidgets.QTreeView(self.centralwidget)
-        self.treeView_2.setGeometry(QtCore.QRect(260, 160, 121, 151))
-        self.treeView_2.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.treeView_2.setObjectName("treeView_2")
+        self.changeList = QtWidgets.QTreeView(self.centralwidget)
+        self.changeList.setGeometry(QtCore.QRect(260, 160, 121, 151))
+        self.changeList.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.changeList.setObjectName("changeList")
 
         HostFileChange.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(HostFileChange)
@@ -111,13 +106,13 @@ class Ui_HostFileChange(QWidget):
     def retranslateUi(self, HostFileChange):
         _translate = QtCore.QCoreApplication.translate
         HostFileChange.setWindowTitle(_translate("HostFileChange", "MainWindow"))
-        self.pushButton.setText(_translate("HostFileChange", "Change IP"))
-        self.pushButton_2.setText(_translate("HostFileChange", "Clear the Host File"))
-        self.pushButton_3.setText(_translate("HostFileChange", "Generate Partner"))
-        self.pushButton_4.setText(_translate("HostFileChange", "Search Partner"))
-        self.label.setText(_translate("HostFileChange", "Enter Machine IP:"))
-        self.label_2.setText(_translate("HostFileChange", "Enter Partner Name:"))
-        self.label_3.setText(_translate("HostFileChange", "Partners that will be changed"))
+        self.ipButton.setText(_translate("HostFileChange", "Change IP"))
+        self.clearButton.setText(_translate("HostFileChange", "Clear the Host File"))
+        self.generateButton.setText(_translate("HostFileChange", "Generate Partner"))
+        self.searchButton.setText(_translate("HostFileChange", "Search Partner"))
+        self.ipLabel.setText(_translate("HostFileChange", "Enter Machine IP:"))
+        self.nameLabel.setText(_translate("HostFileChange", "Enter Partner Name:"))
+        self.changedLabel.setText(_translate("HostFileChange", "Partners that will be changed"))
 
 
 if __name__ == "__main__":

@@ -174,7 +174,6 @@ class Functions():
         else:
             return "OS cannot be identified. This program only runs at Linux and Windows"
 
-        print("alper")
 
         "If the ip is given then the rest of the change function executes. Otherwise host file will be empty"
         if (ip != ''):
@@ -193,7 +192,6 @@ class Functions():
                     #Functions.open_and_write_partner(ip, site)
 
             "Ip will always prepended to all constant links"
-            print("aaaaaa")
             Functions.add_sabit_links(ip)
 
         else:
@@ -277,7 +275,6 @@ class Functions():
             ip = self.ipText.toPlainText()
             sites = []
             for i in range(self.view.count()): #hata burada
-                print("alper")
                 sites.append(str(self.view.item(i).text())) #instead of text I should have my list from the database
         elif local:
             ip = "127.0.0.1"
@@ -287,7 +284,6 @@ class Functions():
         Functions.click(ip, sites)
 
     def add_sabit_links(ip):
-        print("alper")
         host = open("hosts", "a")
         site_list = Functions.get_static_list()
         if ip == '127.0.0.1':
